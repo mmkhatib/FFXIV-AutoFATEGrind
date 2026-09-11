@@ -40,6 +40,13 @@ public sealed class Configuration : IPluginConfiguration
     public int MinTimeRemainingSec { get; set; } = 120;
     public int MaxProgressPct { get; set; } = 90;
 
+    // Restricts eligible FATEs to a level band around the character's current level. Off by default;
+    // when on, MaxLevelAbove=0 means "never fight above your own level" (the common case for zones that
+    // mix a low-level bracket with a high-level one, like a starter area also hosting max-level FATEs).
+    public bool LevelRangeFilterEnabled { get; set; } = false;
+    public int MaxLevelBelow { get; set; } = 50;
+    public int MaxLevelAbove { get; set; } = 0;
+
     public bool SwapZonesWhenEmpty { get; set; } = true;
     public bool ShowLivePopout { get; set; } = false;
 
